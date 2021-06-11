@@ -1,0 +1,41 @@
+
+
+ Spring DATA JPA  -> Encapsula o JPA e deixa mais produtivo a cama de persistência do sistema.
+Ele abstrai o JPA.
+utilizaçção de implementação de interfaces.
+_________________________________________________________
+
+JPQL - Java persistence query language é uma liguagem de consulta orientada a objetos idependete
+de plataforma definida como parte da especificação Java Persistence API.
+O jpql é usado para fazer consultas em entidades armazenadas em um banco de daos relacional.
+
+Para utilizar o jpql criamos uma interface e extendemos o CrudRepositoru<classeenidade, Long>
+____________________________________________________________________
+
+No spring-config colcoar as anotações para as configurações
+<context:annotation-config/>
+
+Lê as classes e cria as tabelas -
+ <context:component-scan base-package=""/>
+
+Apponta para odao onde vai apontar o repositorio de persitencia
+<jpa:repositories base-package=""/>
+
+
+ <!-- Define conexao com BD -->
+ 
+ <bean id="dataSource"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+ 
+ </bean>
+ Configurar totalmente esse arquivo antes de iniciar a criação dos pcts
+___________________________________________________________________________________
+@RunWith(SpringJUnit4ClassRunner.class) -> ingração do spring com junit
+_______________________________________________________________________
+
+Após a configuração do xml, gerar as entidade e verificar se rodou no banco, estanndo
+tudo ok, o próximo passo será criar o Repository que seraá responsável por provê todo
+o CRUD.
+Ao criar essa interface é necessário @ anotar o repository para ativar os erviço de
+persistência e tem que extender do CRUDREPOSITORY ou JPAREPOSITORY.
+Para cada entity deve ser criada a interface repository
+
